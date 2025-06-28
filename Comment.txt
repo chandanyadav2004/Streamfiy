@@ -10,3 +10,9 @@
   app.get("/api/auth/logout" , (req,res)=>{
       res.send("Logout Route");
   })
+
+
+Stream.io 
+
+USer id= ranejo7849@iridales.com
+Passowrd = @dGy7qkcba4Y46M
