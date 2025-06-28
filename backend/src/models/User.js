@@ -51,8 +51,6 @@ const userSchema =  new mongoose.Schema({
 // member since createdAt 
 
 
-const User = mongoose.model("User",userSchema);
-
 // Pre hook
 // It is used hash the password 
 
@@ -66,6 +64,9 @@ userSchema.pre("save",async function(next){
         next(error);     
     }
 });
+
+const User = mongoose.model("User",userSchema);
+
 
 export default User;
 
