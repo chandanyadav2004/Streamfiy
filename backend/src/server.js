@@ -1,6 +1,7 @@
 // Import necessary modules
 import express from "express"; // Import the Express framework
 import authRoutes from "./routes/auth_route.js"; // Import authentication routes
+import chatRoutes from "./routes/chat_route.js"; // Import chat routes
 import userRoutes from "./routes/userRoutes.js"; // Import user-related routes
 import dotenv from "dotenv"; // Import dotenv for environment variable management
 import connectDB from "./lib/db.js"; // Import the database connection function
@@ -26,6 +27,9 @@ app.use("/api/auth", authRoutes);
 
 // Set up user-related routes under the /api/users path
 app.use("/api/users", userRoutes);
+
+// Set up chat-related routes under the /api/users path
+app.use("/api/chat", chatRoutes);
 
 // Start the server and listen on the specified port
 app.listen(PORT, () => {
