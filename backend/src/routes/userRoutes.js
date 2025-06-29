@@ -4,7 +4,10 @@ import express from "express";
 import { protectRoute } from "../middlewares/auth_middleware.js";
 // Import controller functions for user operations
 import {
+  acceptFriendRequest,
+  getFriendRequests,
   getMyFriends,
+  getOutgoingReqs,
   getRecommendUsers,
   sendFriendRequest,
 } from "../controllers/user_controller.js";
@@ -29,5 +32,17 @@ router.get("/friends", getMyFriends);
 // :id = ID of the user to send request to
 router.post("/friend-request/:id", sendFriendRequest);
 
-// Export the router to be used in main application
+// Route: PUT /api/users/friend-request/:id/accept
+// Description: Accept a friend request from another user
+router.put("/friend-request/:id/accept", acceptFriendRequest);
+
+// Route: GET /api/users/friend-requests
+// Description: Get all incoming friend requests for the current user
+router.get("/friend-requests", getFriendRequests);
+
+// Route: GET /api/users/outgoing-friend-requests
+// Description: Get all outgoing friend requests sent by the current user
+router.get("/outgoing-friend-requests", getOutgoingReqs);
+
+// Export the router to be used in the main application
 export default router;
