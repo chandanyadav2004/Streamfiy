@@ -10,11 +10,24 @@ import cookieParser from "cookie-parser"; // Import cookie-parser middleware
 // Load environment variables from .env file
 dotenv.config();
 
+// Import the CORS middleware package
+import cors from "cors";
+
+
 // Create an instance of the Express application
 const app = express();
 
 // Define the port to run the server, using the PORT variable from the environment
 const PORT = process.env.PORT;
+
+// Configure and apply CORS middleware to the Express app
+app.use(
+  cors({
+    origin: "http://localhost:5173", // Allow requests only from this origin (your React/Vite frontend)
+    credentials: true // Allow credentials (cookies, authorization headers) to be sent with requests
+  })
+);
+
 
 // Middleware to parse incoming JSON requests
 app.use(express.json());
