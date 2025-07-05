@@ -30,6 +30,14 @@ export const signup = async (signupData) =>{
  * 5. Unexpected server errors (500 Internal Server Error)
  */
 
+
+export const login = async (loginData) =>{
+    
+    const response = await axiosInstance.post("/auth/login", loginData);
+    return response.data;
+}
+
+
 export const  getAuthUser= async () => {
   const res = await axiosInstance.get("auth/me"); // Make GET request to the API
   return res.data; // Return the response data
