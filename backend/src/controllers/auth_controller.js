@@ -42,11 +42,11 @@ export async function signup(req, res) {
     // Upsert user in Stream
     try {
       await upsertStreamUser ({
-        userId: newUser ._id.toString(), // Use _id instead of __id
-        name: newUser .fullName,
-        image: newUser .profilePic || ""
+        userId: newUser._id.toString(), // Use _id instead of __id
+        name: newUser.fullName,
+        image: newUser.profilePic || ""
       });
-      console.log(`Stream user created for ${newUser .fullName}`);
+      console.log(`Stream user created for ${newUser.fullName}`);
     } catch (error) {
       console.log("Error creating Stream user:", error);
       // Optionally, you can choose to return a response here if needed
