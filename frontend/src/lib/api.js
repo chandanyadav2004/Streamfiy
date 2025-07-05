@@ -29,3 +29,13 @@ export const signup = async (signupData) =>{
  * 4. Rate limiting (429 Too Many Requests)
  * 5. Unexpected server errors (500 Internal Server Error)
  */
+
+export const  getAuthUser= async () => {
+  const res = await axiosInstance.get("auth/me"); // Make GET request to the API
+  return res.data; // Return the response data
+}
+  
+export const  completeOnboarding= async (userData) => {
+  const res = await axiosInstance.post("auth/onboarding",userData); // Make GET request to the API
+  return res.data; // Return the response data
+}
