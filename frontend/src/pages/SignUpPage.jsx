@@ -4,6 +4,7 @@ import { useState } from 'react'; // Importing useState hook from React for mana
 import { Link as RouterLink } from 'react-router-dom'; // Importing Link from react-router-dom for navigation
 import { useMutation, useQueryClient } from '@tanstack/react-query'; // Importing hooks for data fetching and mutation
 import { signup } from '../lib/api'; // Importing the signup function from the API module
+import useSignUp from '../hooks/useSignUp';
 
 function SignUpPage() { // Defining the SignUpPage functional component
 
@@ -14,14 +15,7 @@ function SignUpPage() { // Defining the SignUpPage functional component
     password: "", // Initial state for password
   });
 
-  const queryClient = useQueryClient(); // Getting the query client instance for managing queries
-
-  // useMutation hook to handle the signup process
-  const { mutate:signupMutation, isPending, error } = useMutation({
-    mutationFn: signup, // Function to execute when the mutation is triggered
-    onSuccess: () => queryClient.invalidateQueries({ queryKey: ['authUser '] }) // Invalidate the 'authUser ' query on success
-  });
-
+  const {isPending,error , signupMutation} = useSignUp();
   // Function to handle form submission
   const handleSignup = (e) => {
     e.preventDefault(); // Preventing the default form submission behavior
