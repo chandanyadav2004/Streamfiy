@@ -7,6 +7,8 @@ import dotenv from "dotenv"; // Import dotenv for environment variable managemen
 import connectDB from "./lib/db.js"; // Import the database connection function
 import cookieParser from "cookie-parser"; // Import cookie-parser middleware
 
+import path from "path";
+
 // Load environment variables from .env file
 dotenv.config();
 
@@ -19,6 +21,10 @@ const app = express();
 
 // Define the port to run the server, using the PORT variable from the environment
 const PORT = process.env.PORT;
+
+
+const __dirname = path.resolve();
+
 
 // Configure and apply CORS middleware to the Express app
 app.use(
@@ -43,6 +49,16 @@ app.use("/api/users", userRoutes);
 
 // Set up chat-related routes under the /api/users path
 app.use("/api/chat", chatRoutes);
+
+
+if(process.env.NODE_ENV === "production"){
+  app.use(express.static(path.join(__dirname, "../frontend/dist")));
+
+  app.get("*", (req,res)=>{
+    res.sendFile(path.resolve(__dirname,"../frontend/dist/index.html"));
+  })
+}
+
 
 // Start the server and listen on the specified port
 app.listen(PORT, () => {

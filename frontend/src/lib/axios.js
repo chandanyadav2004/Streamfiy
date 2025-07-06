@@ -1,13 +1,15 @@
 // Import the axios library for making HTTP requests
 import axios from "axios";
 
+const BASE_URL = import.meta.env.MODE === "development" ? "http://localhost:5001/api" : "/api"
+
 /**
  * Creates and exports a configured instance of axios with default settings
  * that will be used throughout the application for API calls.
  */
 export const axiosInstance = axios.create({
     // Base URL that will be prepended to all request URLs
-    baseURL: "http://localhost:5001/api",
+    baseURL: BASE_URL,
 
     // Setting to true ensures cookies are included in cross-origin requests
     // Necessary when working with authenticated APIs/sessions
