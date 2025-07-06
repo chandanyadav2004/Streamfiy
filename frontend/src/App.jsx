@@ -26,7 +26,7 @@ const App = () => {
   if (isLoading) return <PageLoader />;
 
   return (
-    <div className="h-screen" data-theme={theme}>
+    <div className="h-screen " data-theme={theme}>
       {/* Define the routes for the application */}
       <Routes>
         <Route
