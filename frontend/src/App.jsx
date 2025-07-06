@@ -11,11 +11,14 @@ import { Toaster } from "react-hot-toast"; // Import Toaster for toast notificat
 import PageLoader from "./components/PageLoader.jsx";
 import useAuthUser from "./hooks/useAuthUser.js";
 import Layout from "./components/Layout.jsx";
+import { useThemeStore } from "./store/useThemeStore.jsx";
 
 const App = () => {
   // Use the useQuery hook to fetch user data from the API
 
   const { isLoading, authUser } = useAuthUser();
+
+  const {theme} = useThemeStore();
 
   const isAuthenticated = Boolean(authUser);
   const isOnboarded = authUser?.isOnboarded;
@@ -23,7 +26,7 @@ const App = () => {
   if (isLoading) return <PageLoader />;
 
   return (
-    <div className="h-screen" data-theme="forest">
+    <div className="h-screen" data-theme={theme}>
       {/* Define the routes for the application */}
       <Routes>
         <Route
