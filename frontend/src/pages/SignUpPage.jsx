@@ -1,9 +1,8 @@
 import React from 'react'; // Importing React library
 import { ShipWheelIcon } from "lucide-react"; // Importing the ShipWheelIcon from lucide-react
 import { useState } from 'react'; // Importing useState hook from React for managing state
-import { Link as RouterLink } from 'react-router-dom'; // Importing Link from react-router-dom for navigation
-import { useMutation, useQueryClient } from '@tanstack/react-query'; // Importing hooks for data fetching and mutation
-import { signup } from '../lib/api'; // Importing the signup function from the API module
+import { Link } from 'react-router';
+
 import useSignUp from '../hooks/useSignUp';
 
 function SignUpPage() { // Defining the SignUpPage functional component
@@ -121,7 +120,7 @@ function SignUpPage() { // Defining the SignUpPage functional component
                 <div className="text-center mt-4"> {/* Centered text for existing users */}
                   <p className='text-sm'>
                     Already have an account? {" "}
-                    <RouterLink to="/login" className='text-primary hover:underline'>Sign in</RouterLink> {/* Link to login page */}
+                    <Link to="/login" className='text-primary hover:underline'>Sign in</Link> {/* Link to login page */}
                   </p>
                 </div>
               </div>
