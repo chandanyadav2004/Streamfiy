@@ -1,0 +1,21 @@
+{
+  "name": "streamfiy",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/chandanyadav2004/Streamfiy.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/chandanyadav2004/Streamfiy/issues"
+  },
+  "homepage": "https://github.com/chandanyadav2004/Streamfiy#readme"
+}
