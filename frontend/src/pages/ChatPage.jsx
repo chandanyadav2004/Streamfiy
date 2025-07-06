@@ -101,7 +101,7 @@ const ChatPage = () => {
       <Chat client={chatClient}>
         <Channel channel={channel}>
           <div className="w-full relative">
-            <CallButto n handleVideoCall={handleVideoCall} />
+            <CallButton handleVideoCall={handleVideoCall} />
             <Window>
               <ChannelHeader />
               <MessageList />
