@@ -40,7 +40,7 @@ const App = () => {
               <Navigate to={!isAuthenticated ? "/login" : "/onboarding"} />
             )
           }
-        />{" "}
+        />
         {/* Home page route */}
         <Route
           path="/signup"
@@ -51,7 +51,7 @@ const App = () => {
               <Navigate to={isOnboarded ? "/" : "/onboarding"} />
             )
           }
-        />{" "}
+        />
         {/* Sign up page route */}
         <Route
           path="/login"
@@ -62,7 +62,7 @@ const App = () => {
               <Navigate to={isOnboarded ? "/" : "/onboarding"} />
             )
           }
-        />{" "}
+        />
         {/* Login page route */}
         <Route
           path="/notifications"
@@ -75,17 +75,30 @@ const App = () => {
               <Navigate to={!isAuthenticated ? "/login" : "/onboarding"} />
             )
           }
-        />{" "}
+        />
         {/* Notifications page route */}
         <Route
-          path="/call"
-          element={isAuthenticated ? <CallPage /> : <Navigate to="/login" />}
-        />{" "}
+          path="/call/:id"
+          element={
+            isAuthenticated  && isOnboarded ? (
+              <CallPage />
+            ) : (
+              <Navigate to={!isAuthenticated ? "/login" : "/onboarding"} />
+            )
+          }
+        />
         {/* Call page route */}
         <Route
-          path="/chat"
-          element={isAuthenticated ? <ChatPage /> : <Navigate to="/login" />}
-        />{" "}
+          path="/chat/:id"
+          element={isAuthenticated  && isOnboarded ? (
+              <Layout showSidebar={false}>
+                <ChatPage />
+              </Layout>
+            ) : (
+              <Navigate to={!isAuthenticated ? "/login" : "/onboarding"} />
+            )
+          }
+        />
         {/* Chat page route */}
         <Route
           path="/onboarding"
@@ -100,7 +113,7 @@ const App = () => {
               <Navigate to="/login" />
             )
           }
-        />{" "}
+        />
         {/* Onboarding page route */}
       </Routes>
       <Toaster /> {/* Render the Toaster component for toast notifications */}

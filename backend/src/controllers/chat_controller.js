@@ -8,7 +8,7 @@ export async function getStreamToken(req, res) {
     const token = generateStreamToken(req.user.id);
 
     // Return the token as JSON with a 200 OK status
-    res.status(200).json({ token });
+    res.status(200).json({token});
   
   } catch (error) {
     // Log any errors that occur during token generation

@@ -7,7 +7,7 @@ import axios from "axios";
  */
 export const axiosInstance = axios.create({
     // Base URL that will be prepended to all request URLs
-    baseURL: "http://localhost:5001/api/",
+    baseURL: "http://localhost:5001/api",
 
     // Setting to true ensures cookies are included in cross-origin requests
     // Necessary when working with authenticated APIs/sessions

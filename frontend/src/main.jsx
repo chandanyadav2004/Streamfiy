@@ -1,9 +1,9 @@
 // Import necessary modules and components
 import { StrictMode } from 'react'; // Import StrictMode to highlight potential problems in the application
 import { createRoot } from 'react-dom/client'; // Import createRoot for rendering the React app
+import "stream-chat-react/dist/css/v2/index.css";
 import './index.css'; // Import global CSS styles for the application
 import App from './App.jsx'; // Import the main App component
-
 import { BrowserRouter } from 'react-router-dom'; // Import BrowserRouter for routing capabilities
 
 import {
